@@ -1,43 +1,24 @@
 import './App.css';
-import Map from './Map';
+import Map from './Components/Map';
+import Header from './Components/Header';
+import Form from './Components/Form';
 import Points from "./Points";
+
 
 function App() {
   return (
     <div className="App">
-      <div className='App-header'>
-        <img className='logo' src="https://pay.tresor.gouv.ci/r/assets/images/logo_horizontal_tresorpay.png" alt="logo" />
-      </div>
+      <Header />
       <div className='App-body'>
-        <div className="map">
-          <Map points={Points} />
-        </div>
-        <div className='form'>
-          <div className="form-body">
-            <h3 className='form-title'>Recherche</h3>
-            <input type="text" className='form-input' />
-            <button className='form-btn-search'>
-              Rechercher
-            </button>
-          </div>
-
-          <div className='form-list'>
-            <h5 className='form-list-title'>
-              POINTS AGREES TRESORMONEY
-            </h5>
-            {Points && Points.map((item, index) =>
-              <div className="form-list-item">
-                <h3 className='title'> {item.situation} </h3>
-                <p className='text'>
-                  <span> {item.zone} </span> - <span> {item.contact}</span>
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
+        <Map points={Points} />
+        {/* <Form /> */}
       </div>
       <div className="App-footer">
-      
+        <img className='logo' src="https://pay.tresor.gouv.ci/r/assets/images/footer_principale.png" />
+        <br />
+        © Copyright 2020 DIRECTION GÉNÉRALE DU TRÉSOR ET DE LA COMPTABILITÉ PUBLIQUE
+        <br />
+        Pour toutes vos préoccupations, écrire à : <a mailto="cetp@tresor.gouv.ci">cetp@tresor.gouv.ci</a>
       </div>
     </div>
   );

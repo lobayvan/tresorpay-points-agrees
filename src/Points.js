@@ -30,7 +30,31 @@ const Points = [
         coords: [5.382902925100022, -3.9929782704704855],
         contact: "07 47 62 23 71",
         zone: "COCODY II PLATEAUX",
-    }
+    },
+
+    {
+        id: uuidv4(),
+        situation: "GENDARMERIE",
+        coords: [5.4265139789414585, -4.019863516187363],
+        contact: "07 47 62 24 21",
+        zone: "ABOBO",
+    },
+
+    {
+        id: uuidv4(),
+        situation: "SAMANKE EN FACE DU COLLEGE LES ORCHIDES",
+        coords: [5.414546034334895, -4.005044755373099],
+        contact: "01 02 71 41 46",
+        zone: "ABOBO",
+    },
+
+    {
+        id: uuidv4(),
+        situation: "A COTE DU LYCEE MERMOZ",
+        coords: [5.341007837403063, -3.999496224405354],
+        contact: "07 09 23 34 49",
+        zone: "COCODY",
+    },
 ];
 
 export default Points;
