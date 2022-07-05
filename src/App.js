@@ -12,6 +12,7 @@ function App() {
       <Header />
       <div className='App-body'>
         <Map points={Points} />
+        <Form />
       </div>
       <Footer />
     </div>

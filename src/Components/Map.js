@@ -1,7 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import Form from './Form';
 
 const pos = {
     lng: 5.3510144,
@@ -40,8 +39,6 @@ export default function Map({points}) {
           </Marker>)}
 
           <MapShowPoint point={selectedPoint} />
-
-          <Form />
       </MapContainer>
     </div>
   )

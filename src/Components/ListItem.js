@@ -2,12 +2,16 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { selectionnerPoint } from '../redux/points/actions';
 
-export default function ListItem({id, situation, zone, contact, coords }) {
+export default function ListItem({id, situation, zone, contact, coords, dimensions }) {
     const {points: {selectedPoint, points}} = useSelector((state)=> state.points); 
     const dispatch = useDispatch();
 
     const handleClick = (e) => {
-        dispatch(selectionnerPoint({id,situation, zone, contact, coords}))
+        if(dimensions[0] < 576) {
+            window.open(`http://maps.google.com/maps?q=loc:${situation}/@${coords[0]},${coords[1]}`, "_blank");
+            return false;
+        }
+        dispatch(selectionnerPoint({id,situation, zone, contact, coords}));
     }
 
     useEffect(() => {

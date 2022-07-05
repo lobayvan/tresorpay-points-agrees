@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react'
 import {connect, useSelector, useDispatch} from 'react-redux';
 import ListItem from './ListItem';
 import { rechercherPoint, reInitialiserPoints } from '../redux/points/actions';
+import Dimension from '../Hooks/Dimension';
 
 export default connect() (function Form() {
     const dispatch = useDispatch();
+    const dimensions = Dimension();
     const {points} = useSelector((state)=> state.points);
     const [inputValue, setInputValue] = useState("");
 
@@ -13,8 +15,9 @@ export default connect() (function Form() {
     }
 
     const handleSearch = (e) => {
-        console.log("text a recherché: ", inputValue);
-        dispatch(rechercherPoint(inputValue));
+        if(inputValue.length > 0) {
+            dispatch(rechercherPoint(inputValue));
+        }
     }
 
     const handleClearSearch = (e) => {
@@ -24,9 +27,9 @@ export default connect() (function Form() {
 
 
     useEffect(()=> {
-        console.log("[form component] : ", points);
         console.log("les points: ", points);
-    }, [points])
+        console.log("les dimensions: ", dimensions);
+    }, [points, dimensions])
 
 
     return (
@@ -48,11 +51,11 @@ export default connect() (function Form() {
                 </button>
             </div>
 
+            <h5 className='form-list-title'>
+                POINTS AGREES TRESORMONEY
+            </h5>
             <div className='form-list'>
-                <h5 className='form-list-title'>
-                    POINTS AGREES TRESORMONEY
-                </h5>
-                {points && points.map((item, index) => <ListItem key={item.id} {...item} />)}
+                {points && points.map((item, index) => <ListItem key={item.id} {...item} dimensions={dimensions} />)}
             </div>
         </div>
     )
